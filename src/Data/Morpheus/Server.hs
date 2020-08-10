@@ -17,6 +17,8 @@ module Data.Morpheus.Server
     ServerConstraint,
     httpPlayground,
     compileTimeSchemaValidation,
+    initDefaultStore,
+    Store
   )
 where
 
@@ -99,15 +101,15 @@ subscriptionApp ::
   ( MonadUnliftIO m,
     Eq channel
   ) =>
+  Store (Event channel a) m ->
   ( Store (Event channel a) m ->
     (Scope WS (Event channel a) m -> m ()) ->
     m app
   ) ->
   (Input WS -> Stream WS (Event channel a) m) ->
   m (app, Event channel a -> m ())
-subscriptionApp appWrapper api =
+subscriptionApp store appWrapper api =
   do
-    store <- initDefaultStore
     app <- appWrapper store (connectionThread api)
     pure
       ( app,
@@ -135,6 +137,7 @@ webSocketsApp ::
     MonadUnliftIO m,
     Eq channel
   ) =>
+  Store (Event channel a) m ->
   (Input WS -> Stream WS (Event channel a) m) ->
   m (ServerApp, Event channel a -> m ())
-webSocketsApp = subscriptionApp webSocketsWrapper
+webSocketsApp store = subscriptionApp store $ webSocketsWrapper
