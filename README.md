@@ -1,5 +1,7 @@
 # Morpheus GraphQL [![Hackage](https://img.shields.io/hackage/v/morpheus-graphql.svg)](https://hackage.haskell.org/package/morpheus-graphql) ![CI](https://github.com/morpheusgraphql/morpheus-graphql/workflows/CI/badge.svg)
 
+!Patched some compiler errors i got from the Fork from RobinKrom!
+
 Build GraphQL APIs with your favourite functional language!
 
 Morpheus GraphQL (Server & Client) helps you to build GraphQL APIs in Haskell with native Haskell types.
