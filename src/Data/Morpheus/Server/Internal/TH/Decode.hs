@@ -23,9 +23,11 @@ import Data.Morpheus.Internal.Utils
 import Data.Morpheus.Types.GQLScalar
   ( toScalar,
   )
+
+import Data.Morpheus.Types.Internal.AST.Base (InternalError, msgInternal)
+
 import Data.Morpheus.Types.Internal.AST
   ( FieldName,
-    InternalError,
     Message,
     ObjectEntry (..),
     ScalarValue,
@@ -36,7 +38,6 @@ import Data.Morpheus.Types.Internal.AST
     ValidValue,
     Value (..),
     msg,
-    msgInternal,
     toFieldName,
   )
 import Data.Morpheus.Types.Internal.Resolving
