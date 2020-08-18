@@ -43,6 +43,7 @@ library:
     - Data.Morpheus.Internal.TH
     - Data.Morpheus.Internal.Utils
     - Data.Morpheus.Types.Internal.AST
+    - Data.Morpheus.Types.Internal.AST.Base
     - Data.Morpheus.Types.IO
     - Data.Morpheus.Types.Internal.Resolving
     - Data.Morpheus.Types.GQLScalar
